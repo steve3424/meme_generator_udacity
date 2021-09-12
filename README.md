@@ -1,5 +1,5 @@
 # Meme Generator Project
-This project is from Udacity's Intermediate Python Nanodegree program. <br>It contains a command line application as well as a web application which takes in a photo and a <br>quote and generates a meme. The web app runs on the local machine using flask library. <br>Both tools can generate a random meme built from the photos in "./src/data/photos" and the <br>quotes in "./src/data/quotes" or accept a path to both a photo and quote file and generate a meme. <br>All photos are taken from "https://wallpaper-house.com/" and all <br>quotes are taken from "https://parade.com/940913/parade/funny-quotes/"
+This project is from Udacity's Intermediate Python Nanodegree program. It contains a command line application as well as a web application which takes in a photo and a quote and generates a meme. The web app runs on the local machine using flask library. Both tools can generate a random meme built from the photos in "./src/data/photos" and the quotes in "./src/data/quotes" or accept a path to both a photo and quote file and generate a meme. All photos are taken from "https://wallpaper-house.com/" and all quotes are taken from "https://parade.com/940913/parade/funny-quotes/"
 
 - Random command line:
 Run ```python3 meme.py``` in the "./src" folder and the path to the generated meme will be output.
@@ -7,7 +7,7 @@ Run ```python3 meme.py``` in the "./src" folder and the path to the generated me
 ![command_line_random](./src/data/examples/command_line_random.jpg)
 
 - Specified command line:
-Run ```python3 meme.py --path=(path to img) --body="body text" --author="author" and the path to the generated meme will be output
+Run ```python3 meme.py --path=(path to img) --body="body text" --author="author"``` and the path to the generated meme will be output
 
 ![command_line_specific](./src/data/examples/command_line_specific.jpg)
 
@@ -24,10 +24,14 @@ Then you can click "Random" to generate a random meme or click "Creator" to inpu
 
 
 
-There are 2 primary modules which drive the meme generator: QuoteEngine ("./src/QuoteEngine") and MemeGenerator ("./src/MemeGenrator"). <br>I will go into a bit more detail here about how they work.
+There are 2 primary modules which drive the meme generator: 
+- QuoteEngine ("./src/QuoteEngine")
+- MemeGenerator ("./src/MemeGenrator"). 
 
-### QuoteEngine
-This module contains 2 files: "QuoteModel.py" and "Ingestor.py"
+I will go into a bit more detail here about how they work.
+
+### QuoteEngine Module
+This module is responsible for parsing files to find quotes.
 
 **QuoteModel.py**
 
@@ -46,10 +50,11 @@ Each of these are responsible for implementing the specific code required to par
 
 - Ingestor
 
-This is the outward facing class which handles all parsing requests. <br>It maintains a list of available ingestors and dispatches the parse request to the proper ingestor if available.
+This is the outward facing class which handles all parsing requests. It maintains a list of available ingestors and dispatches the parse request to the proper ingestor if available.
 
-### MemeGenerator
+### MemeGenerator Module
 This module uses pillow image library and textwrap to create the final meme given an image path and a quote.
 
 **MemeEngine.py**
+
 Contains a class "MemeEngine" which takes in an image url and a quote, then uses pillow library to overlay the quote onto the image as a meme.
